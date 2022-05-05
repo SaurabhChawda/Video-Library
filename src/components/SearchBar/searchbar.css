@@ -1,0 +1,16 @@
+.searchbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.nav__input--search {
+  padding: 10px 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  width: 60%;
+}
+@media screen and (max-width: 800px) {
+  .nav__input--search {
+    width: 90%;
+  }
+}

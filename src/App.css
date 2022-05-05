@@ -1,51 +1,68 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+/***** Reset Stylesheet *****/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  list-style: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
+a {
+  font-size: 100%;
+  background: transparent;
+  text-decoration: none;
   display: flex;
 }
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+:root {
+  --primary-color: #ff8c44;
+  --primary-bg-color: #151515;
+  --secondary-bg-color: rgb(34, 31, 31);
+  --white-color: white;
+  --black-color: black;
+  --font-size-XX-large: clamp(3rem, 12vw, 10rem);
+  --font-size-X-large: clamp(1.2rem, 2.5vw, 10rem);
+  --font-size-large: clamp(1rem, 1.5vw, 10rem);
+  --font-size-regular: clamp(12px, 2.5vw, 1rem);
+  --font-size-small: clamp(8px, 1vw, 1rem);
 }
+/* login form ends here */
+
+/*** Scroll bar ***/
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+/* :root {
+  primary-color :- #ff8c44
+  Text-Color:- #49a0eb
+  black-Theme :- #1A202C
+  white-Theme :- #FFFFFF 
+} */
+
+/* :root {
+  --primary-color: #3282b8;
+  --primary-bg-color: #151515;
+  --secondary-bg-color: rgb(27, 25, 25);
+  --white-color: white;
+  --black-color: black;
+  --font-size-XX-large: clamp(3rem, 12vw, 10rem);
+  --font-size-X-large: clamp(1.2rem, 2.5vw, 10rem);
+  --font-size-large: clamp(1rem, 1.5vw, 10rem);
+  --font-size-regular: clamp(12px, 2.5vw, 1rem);
+  --font-size-small: clamp(8px, 1vw, 1rem);
+} */
