@@ -1,0 +1,28 @@
+@media screen and (max-width: 1150px) {
+  .card-product {
+    margin: 3em 2em;
+  }
+}
+@media screen and (max-width: 800px) {
+  .home-page {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header header header"
+      "main main main";
+  }
+  .home-page__main-container {
+    grid-area: main;
+  }
+  .nav-bar__img--logo {
+    margin-left: auto;
+  }
+  .sidebar {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card-product {
+    margin: 2em 1.5em;
+  }
+}
