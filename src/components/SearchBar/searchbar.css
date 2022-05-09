@@ -5,7 +5,6 @@
 }
 .nav__input--search {
   padding: 10px 1rem;
-  border: 2px solid var(--primary-color);
   border-radius: 5px;
   width: 60%;
 }

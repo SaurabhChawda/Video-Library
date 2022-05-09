@@ -1,10 +1,15 @@
 import "./searchbar.css";
-import { useSearch } from "../../Contexts/SearchContext";
+import { useSearch, useFilter } from "../../Contexts/Index";
+
 export const SearchBar = () => {
+  const {
+    state: { filteredData },
+  } = useFilter();
   const { setUpdatedData, data } = useSearch();
-  const newdata = [...data];
   const searchHandler = (value) => {
-    return setUpdatedData(newdata.filter((item) => item.title.toLowerCase().match(value.toLowerCase())));
+    return filteredData.length !== 0
+      ? setUpdatedData(filteredData.filter((item) => item.title.toLowerCase().match(value.toLowerCase())))
+      : setUpdatedData(data.filter((item) => item.title.toLowerCase().match(value.toLowerCase())));
   };
   return (
     <div className="searchbar">
