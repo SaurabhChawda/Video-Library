@@ -4,13 +4,13 @@
   }
 }
 @media screen and (max-width: 800px) {
-  .home-page {
+  .page--Container {
     grid-template-columns: 100%;
     grid-template-areas:
       "header header header"
       "main main main";
   }
-  .home-page__main-container {
+  .main--container {
     grid-area: main;
   }
   .nav-bar__img--logo {

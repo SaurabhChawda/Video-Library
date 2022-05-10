@@ -3,17 +3,17 @@ import "../../../components/Card/Card-Responsive.css";
 import { MdDelete } from "react-icons/md";
 import { useTheme, useUser } from "../../../Contexts/Index";
 import { useNavigate } from "react-router-dom";
-export const WatchLaterCard = () => {
+export const LikedVideoCard = () => {
   const navigate = useNavigate();
   const { themeToggle } = useTheme();
   const {
-    state: { watchLater },
+    state: { likedVideo },
     dispatch,
   } = useUser();
   return (
     <section className="card">
-      {watchLater &&
-        watchLater.map((item) => {
+      {likedVideo &&
+        likedVideo.map((item) => {
           return (
             <div key={item._id} className="card--wrapper">
               <div className="card--thumbnail">
@@ -44,7 +44,7 @@ export const WatchLaterCard = () => {
                     size={25}
                     color={themeToggle === "light" ? "White" : "black"}
                     onClick={() => {
-                      dispatch({ type: "Remove_From_WatchLater", payload: item });
+                      dispatch({ type: "Remove_From_LikedVideo", payload: item });
                     }}
                   />
                 </div>

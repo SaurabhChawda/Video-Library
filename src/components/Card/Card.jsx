@@ -21,7 +21,10 @@ export const Card = () => {
                 <img
                   className="card__img--thumbnail"
                   src={item.thumbnail}
-                  onClick={() => navigate(`/video/${item._id}`)}
+                  onClick={() => {
+                    dispatch({ type: "Add_to_CurrentVideo", payload: item });
+                    navigate(`/video/${item._id}`);
+                  }}
                 />
                 <small className="card--time">{item.time}</small>
               </div>
