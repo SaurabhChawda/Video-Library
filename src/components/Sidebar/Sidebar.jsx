@@ -1,37 +1,37 @@
 import "./Sidebar.css";
 import { MdPlaylistAdd, MdWatchLater, MdOutlineHome, MdOutlineHistoryToggleOff } from "react-icons/md";
 import { AiFillLike } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+import { useTheme } from "../../Contexts/ThemeContext";
 export function Sidebar() {
+  const { themeToggle } = useTheme();
   return (
     <div className="sidebar-container">
       <div className="sidebar">
-        <ul className="sidebar__unordered-list">
-          <li className="sidebar__list">
-            {/* <img className="sidebar__icon" src="/assets/image/HomePage/Home.png" alt="Home" /> */}
-            <MdOutlineHome size={30} color="white" />
+        <div className="sidebar__list--container">
+          <NavLink to="/" className="sidebar__list">
+            <span>
+              <MdOutlineHome size={30} color={themeToggle === "light" ? "white" : "black"} />
+            </span>
             <h3 className="sidebar--content">Home</h3>
-          </li>
-          <li className="sidebar__list">
-            {/* <img className="sidebar__icon" src="/assets/image/HomePage/Watch Later.png" alt="Watch Later" /> */}
-            <MdWatchLater size={28} color="white" />
+          </NavLink>
+          <NavLink to="/watchLater" className="sidebar__list">
+            <MdWatchLater size={30} color={themeToggle === "light" ? "white" : "black"} />
             <h3 className="sidebar--content">Watch Later</h3>
-          </li>
-          <li className="sidebar__list">
-            {/* <img className="sidebar__icon" src="/assets/image/HomePage/Play List.png" alt="Play List" /> */}
-            <MdPlaylistAdd size={30} color="white" />
+          </NavLink>
+          <NavLink to="/playlist" className="sidebar__list">
+            <MdPlaylistAdd size={30} color={themeToggle === "light" ? "white" : "black"} />
             <h3 className="sidebar--content">PlayList</h3>
-          </li>
-          <li className="sidebar__list">
-            {/* <img className="sidebar__icon" src="/assets/image/HomePage/Liked.png" alt="Liked" /> */}
-            <AiFillLike size={30} color="white" />
+          </NavLink>
+          <NavLink to="/likedvideos" className="sidebar__list">
+            <AiFillLike size={30} color={themeToggle === "light" ? "white" : "black"} />
             <h3 className="sidebar--content">Liked Videos</h3>
-          </li>
-          <li className="sidebar__list">
-            {/* <img className="sidebar__icon" src="/assets/image/HomePage/History.png" alt="History" /> */}
-            <MdOutlineHistoryToggleOff size={30} color="white" />
+          </NavLink>
+          <NavLink to="/history" className="sidebar__list">
+            <MdOutlineHistoryToggleOff size={30} color={themeToggle === "light" ? "white" : "black"} />
             <h3 className="sidebar--content">History</h3>
-          </li>
-        </ul>
+          </NavLink>
+        </div>
       </div>
     </div>
   );

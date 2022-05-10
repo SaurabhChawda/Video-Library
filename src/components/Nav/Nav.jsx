@@ -1,13 +1,16 @@
 import "./nav.css";
-import { MdLogin, MdDarkMode } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { MdLogin, MdDarkMode, MdLightMode } from "react-icons/md";
 import { SearchBar } from "../Index.js";
-export function Nav() {
+import { useTheme } from "../../Contexts/Index";
+export function Nav({ hideComponent }) {
+  const { themeToggle, setThemeToggle } = useTheme();
   return (
     <div>
       {/* Navigation Bar Desktop */}
       <nav className="nav-bar nav-bar--simple">
         <nav className="nav-bar--logo">
-          <a>
+          <Link to="/">
             <img
               className="nav-bar__img--logo nav-bar__img--desktop-logo"
               src="/assets/image/HomePage/Discover-Logo.png"
@@ -18,18 +21,34 @@ export function Nav() {
               src="/assets/image/HomePage/Discover-Mobile-Logo.png"
               alt="Discover"
             />
-          </a>
+          </Link>
         </nav>
-        <SearchBar />
+        {hideComponent && <SearchBar />}
         <ul className="nav-bar__list">
           <li className="nav-bar__item">
-            {/* <img className="nav-bar__img--login" src="/assets/image/HomePage/Login.png" alt="Login" /> */}
-            <MdLogin size={30} color="white" />
+            <MdLogin size={25} color={themeToggle === "light" ? "white" : "black"} />
           </li>
-          <li className="nav-bar__item">
-            {/* <img className="nav-bar__toggle" src="/assets/image/HomePage/DarkMode.png"></img> */}
-            <MdDarkMode size={30} color="white" />
-          </li>
+          {hideComponent && (
+            <li className="nav-bar__item">
+              {themeToggle === "light" ? (
+                <MdLightMode
+                  size={25}
+                  color={themeToggle === "light" ? "white" : "black"}
+                  onClick={() => {
+                    themeToggle === "light" ? setThemeToggle("dark") : setThemeToggle("light");
+                  }}
+                />
+              ) : (
+                <MdDarkMode
+                  size={25}
+                  color={themeToggle === "light" ? "white" : "black"}
+                  onClick={() => {
+                    themeToggle === "light" ? setThemeToggle("dark") : setThemeToggle("light");
+                  }}
+                />
+              )}
+            </li>
+          )}
         </ul>
       </nav>
     </div>
