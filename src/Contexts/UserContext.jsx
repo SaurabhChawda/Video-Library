@@ -3,7 +3,13 @@ import { Reducer } from "../Reducers/userReducer";
 const UserContext = createContext(null);
 
 const UserProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(Reducer, { watchLater: [], playList: [], history: [] });
+  const [state, dispatch] = useReducer(Reducer, {
+    watchLater: [],
+    playList: [],
+    history: [],
+    currentVideo: [],
+    likedVideo: [],
+  });
 
   return <UserContext.Provider value={{ state, dispatch }}>{children}</UserContext.Provider>;
 };

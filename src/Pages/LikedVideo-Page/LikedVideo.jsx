@@ -1,15 +1,15 @@
 import "../Home-Page/Home.css";
 import "../Home-Page/Home-Responsive.css";
 import { Nav, NavForTab, Sidebar } from "../../components/Index";
-import { WatchLaterCard } from "./Components/WatchLaterCard.jsx";
-export function WatchLater() {
+import { LikedVideoCard } from "./Components/LikedVideoCard.jsx";
+export function LikedVideo() {
   return (
     <div className="page--Container">
       <Nav hideComponent={false} />
       <NavForTab />
       <Sidebar />
       <main className="main--container">
-        <WatchLaterCard />
+        <LikedVideoCard />
       </main>
     </div>
   );

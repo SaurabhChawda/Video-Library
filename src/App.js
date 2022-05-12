@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home, WatchLater } from "./Pages/Index";
+import { Home, WatchLater, Video, LikedVideo } from "./Pages/Index";
 import { Route, Routes } from "react-router-dom";
 import { useTheme } from "./Contexts/Index";
 function App() {
@@ -9,8 +9,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/watchLater" element={<WatchLater />}></Route>
+        <Route path="/video/:id" element={<Video />}></Route>
         <Route path="/playlist" element={<WatchLater />}></Route>
-        <Route path="/likedvideos" element={<WatchLater />}></Route>
+        <Route path="/likedvideos" element={<LikedVideo />}></Route>
         <Route path="/history" element={<WatchLater />}></Route>
       </Routes>
     </div>

@@ -1,0 +1,55 @@
+/***** aside *****/
+.aside-card--wrapper {
+  margin: 1rem;
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px rgb(167, 167, 167);
+}
+.aside-card--thumbnail {
+  position: relative;
+}
+.aside-card__img--thumbnail {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+.aside-card--content-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.5rem;
+  color: var(--primary-theme-color);
+}
+.aside-card__img--content-Profile {
+  width: 2rem;
+  border-radius: 50%;
+}
+.aside-card__img--content {
+  cursor: pointer;
+  width: 1.5rem;
+}
+.aside-card--content-channel {
+  margin: 0.2rem 0.2rem 0.2rem 0rem;
+  display: block;
+}
+.aside-card--content-date {
+  margin-left: 0.5rem;
+}
+.aside-card--content-title {
+  font-size: var(--font-size-regular);
+  justify-self: flex-start;
+}
+.aside-card--time {
+  font-size: 0.8rem;
+  color: var(--primary-theme-color);
+  background-color: var(--secondary-theme-color);
+  border: 2px solid var(--secondary-theme-color);
+  border-radius: 0.5rem;
+  padding: 2px 6px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
