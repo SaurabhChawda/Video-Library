@@ -25,7 +25,7 @@ export const HistoryCard = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
-                    dispatch({ type: "Add_to_History ,", payload: item });
+                    dispatch({ type: "Add_to_History", payload: item });
                     navigate(`/video/${item._id}`);
                   }}
                 />
