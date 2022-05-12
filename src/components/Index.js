@@ -6,3 +6,5 @@ export { Card } from "./Card/Card.jsx";
 export { Filter } from "./Filter/Filter.jsx";
 export { Aside } from "./Aside/Aside.jsx";
 export { AsideCard } from "./AsideCard/AsideCard.jsx";
+export { PlayListModal } from "./PlayListModal/PlayListModal.jsx";
+export { Modal } from "./Modal/Modal.jsx";

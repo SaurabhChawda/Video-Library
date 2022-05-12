@@ -16,24 +16,28 @@ a {
   text-decoration: none;
   display: flex;
 }
-[theme="light"] {
+[theme="dark"] {
   --primary-color: #ff8c44;
   --primary-bg-color: #151515;
   --secondary-bg-color: rgb(34, 31, 31);
   --primary-theme-color: white;
   --secondary-theme-color: black;
+  --white-color: white;
+  --black-color: black;
   --font-size-XX-large: clamp(3rem, 12vw, 10rem);
   --font-size-X-large: clamp(1.2rem, 2.5vw, 10rem);
   --font-size-large: clamp(1rem, 1.5vw, 10rem);
   --font-size-regular: clamp(12px, 2.5vw, 1rem);
   --font-size-small: clamp(8px, 1vw, 1rem);
 }
-[theme="dark"] {
+[theme="light"] {
   --primary-color: #ff8c44;
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #fefbfb;
   --primary-theme-color: black;
   --secondary-theme-color: white;
+  --white-color: white;
+  --black-color: black;
   --font-size-XX-large: clamp(3rem, 12vw, 10rem);
   --font-size-X-large: clamp(1.2rem, 2.5vw, 10rem);
   --font-size-large: clamp(1rem, 1.5vw, 10rem);

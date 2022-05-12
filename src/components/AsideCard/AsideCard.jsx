@@ -7,8 +7,8 @@ export function AsideCard() {
   const {
     state: { currentVideo },
     dispatch,
+    AddToHistory,
   } = useUser();
-  console.log(currentVideo);
   return (
     <>
       {currentVideo.length !== 0 &&
@@ -23,7 +23,7 @@ export function AsideCard() {
                     src={item.thumbnail}
                     onClick={() => {
                       dispatch({ type: "Add_to_CurrentVideo", payload: item });
-                      dispatch({ type: "Add_to_History", payload: item });
+                      AddToHistory(item);
                       navigate(`/video/${item._id}`);
                     }}
                   />

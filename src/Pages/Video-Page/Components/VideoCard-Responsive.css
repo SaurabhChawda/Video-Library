@@ -14,3 +14,11 @@
     margin: 5em 1em 6em;
   }
 }
+@media screen and (max-width: 560px) {
+  .videoCard__icon--container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

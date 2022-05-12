@@ -1,10 +1,20 @@
 import "./nav.css";
 import { Link } from "react-router-dom";
-import { MdLogin, MdDarkMode, MdLightMode } from "react-icons/md";
+import { MdLogin, MdEmojiPeople, MdDarkMode, MdLightMode } from "react-icons/md";
 import { SearchBar } from "../Index.js";
-import { useTheme } from "../../Contexts/Index";
+import { useTheme, useAuth } from "../../Contexts/Index";
+import { useNavigate } from "react-router";
+import { Modal } from "../Index";
+import { useState } from "react";
+
 export function Nav({ hideComponent }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const { themeToggle, setThemeToggle } = useTheme();
+  const {
+    authState: { isUserLoggedIn },
+    logoutCredentials,
+  } = useAuth();
   return (
     <div>
       {/* Navigation Bar Desktop */}
@@ -26,14 +36,26 @@ export function Nav({ hideComponent }) {
         {hideComponent && <SearchBar />}
         <ul className="nav-bar__list">
           <li className="nav-bar__item">
-            <MdLogin size={25} color={themeToggle === "light" ? "white" : "black"} />
+            {isUserLoggedIn ? (
+              <MdEmojiPeople
+                size={25}
+                color={themeToggle === "light" ? "black" : "white"}
+                onClick={() => setIsOpen(!isOpen)}
+              />
+            ) : (
+              <MdLogin
+                size={25}
+                color={themeToggle === "light" ? "black" : "white"}
+                onClick={() => navigate("/login")}
+              />
+            )}
           </li>
           {hideComponent && (
             <li className="nav-bar__item">
               {themeToggle === "light" ? (
                 <MdLightMode
                   size={25}
-                  color={themeToggle === "light" ? "white" : "black"}
+                  color={themeToggle === "light" ? "black" : "white"}
                   onClick={() => {
                     themeToggle === "light" ? setThemeToggle("dark") : setThemeToggle("light");
                   }}
@@ -41,7 +63,7 @@ export function Nav({ hideComponent }) {
               ) : (
                 <MdDarkMode
                   size={25}
-                  color={themeToggle === "light" ? "white" : "black"}
+                  color={themeToggle === "light" ? "black" : "white"}
                   onClick={() => {
                     themeToggle === "light" ? setThemeToggle("dark") : setThemeToggle("light");
                   }}
@@ -51,6 +73,7 @@ export function Nav({ hideComponent }) {
           )}
         </ul>
       </nav>
+      {isOpen && <Modal value={{ isOpen, setIsOpen }} />}
     </div>
   );
 }

@@ -13,9 +13,7 @@ export const HistoryCard = () => {
   } = useUser();
   return (
     <section className="card">
-      {history.length === 0 ? (
-        <h1 className="card--empty">Your History is Empty !</h1>
-      ) : (
+      {history &&
         history.map((item) => {
           return (
             <div key={item._id} className="card--wrapper">
@@ -25,7 +23,6 @@ export const HistoryCard = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
-                    dispatch({ type: "Add_to_History", payload: item });
                     navigate(`/video/${item._id}`);
                   }}
                 />
@@ -48,15 +45,14 @@ export const HistoryCard = () => {
                     size={25}
                     color={themeToggle === "light" ? "black" : "white"}
                     onClick={() => {
-                      dispatch({ type: "Remove_From_History", payload: item });
+                      RemoveFromHistory(item);
                     }}
                   />
                 </div>
               </div>
             </div>
           );
-        })
-      )}
+        })}
     </section>
   );
 };
