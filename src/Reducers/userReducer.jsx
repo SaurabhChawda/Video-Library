@@ -15,6 +15,16 @@ export const Reducer = (state, action) => {
         ...state,
         watchLater: state.watchLater.filter((item) => item._id !== action.payload._id),
       };
+    case "Add_to_History":
+      return {
+        ...state,
+        history: [...state.history, action.payload],
+      };
+    case "Remove_From_History":
+      return {
+        ...state,
+        history: state.history.filter((item) => item._id !== action.payload._id),
+      };
     case "Add_to_PlayList":
       return {
         ...state,
