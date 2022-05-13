@@ -1,0 +1,42 @@
+.nav-bar-tab {
+  display: none;
+  z-index: 1;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 4rem;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.nav-bar-tab-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.8rem;
+}
+.nav-bar-tab--icon {
+  width: 1.5rem;
+  cursor: pointer;
+}
+.nav-bar-tab-list {
+  color: var(--primary-theme-color);
+  padding: 12px 16px;
+  display: block;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-bar-tab {
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  .nav-bar-tab {
+    margin: 0;
+    border-radius: 0;
+  }
+}

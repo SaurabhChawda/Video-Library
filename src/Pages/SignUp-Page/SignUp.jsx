@@ -1,6 +1,6 @@
 import "./signUp.css";
 import { useState } from "react";
-import { Nav,Sidebar } from "../../components/Index";
+import { Nav, NavForTab, Sidebar } from "../../components/Index";
 import { useAuth } from "../../Contexts/Index";
 import { NavLink } from "react-router-dom";
 import { Header } from "./Components/Header";
@@ -30,6 +30,7 @@ export function SignUp() {
   return (
     <div className="page--Container">
       <Nav hideComponent={false} />
+      <NavForTab />
       <Sidebar />
       <main className="main--container">
         <Header />

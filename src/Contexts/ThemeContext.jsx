@@ -7,10 +7,14 @@ const ThemeProvider = ({ children }) => {
   const [themeToggle, setThemeToggle] = useState("light");
 
   useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify("light"));
+  }, []);
+
+  useEffect(() => {
     if (authState.isUserLoggedIn) {
       localStorage.setItem("theme", JSON.stringify(themeToggle));
     }
-  }, [themeToggle]);
+  }, [authState, themeToggle]);
 
   useEffect(() => {
     setThemeToggle(JSON.parse(localStorage.getItem("theme")));

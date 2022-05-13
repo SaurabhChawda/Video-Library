@@ -1,7 +1,7 @@
 import "./login.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Nav,Sidebar } from "../../components/Index";
+import { Nav, NavForTab, Sidebar } from "../../components/Index";
 import { useAuth } from "../../Contexts/Index";
 import { Header } from "./Components/Header";
 export function Login() {
@@ -20,6 +20,7 @@ export function Login() {
   return (
     <div className="page--Container">
       <Nav hideComponent={false} />
+      <NavForTab />
       <Sidebar />
       <main className="main--container">
         <Header />
