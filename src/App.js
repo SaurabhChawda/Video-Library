@@ -1,9 +1,9 @@
 import "./App.css";
-import { Home, WatchLater, Video, LikedVideo, History, Login, SignUp } from "./Pages/Index";
+import { Home, WatchLater, Video, LikedVideo, History, Login, SignUp, PlayList } from "./Pages/Index";
 import { Route, Routes } from "react-router-dom";
 import { useTheme } from "./Contexts/Index";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const { themeToggle } = useTheme();
@@ -14,7 +14,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/video/:id" element={<Video />}></Route>
-          {/* <Route path="/playlist" element={<WatchLater />}></Route> */}
+          <Route
+            path="/playlist"
+            element={
+              <PrivateRoute>
+                <PlayList />
+              </PrivateRoute>
+            }
+          ></Route>
           <Route path="/signUp/" element={<SignUp />}></Route>
           <Route path="/login/" element={<Login />}></Route>
           <Route

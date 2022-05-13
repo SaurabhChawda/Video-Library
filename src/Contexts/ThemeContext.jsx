@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useAuth } from "./Index";
-const ThemeContext = createContext(null);
+const ThemeContext = createContext("light");
 
 const ThemeProvider = ({ children }) => {
   const { authState } = useAuth();
@@ -11,6 +11,7 @@ const ThemeProvider = ({ children }) => {
       localStorage.setItem("theme", JSON.stringify(themeToggle));
     }
   }, [themeToggle]);
+
   useEffect(() => {
     setThemeToggle(JSON.parse(localStorage.getItem("theme")));
   }, [authState]);

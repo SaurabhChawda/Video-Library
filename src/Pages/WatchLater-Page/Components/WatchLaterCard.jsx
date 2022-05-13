@@ -14,7 +14,9 @@ export const WatchLaterCard = () => {
   } = useUser();
   return (
     <section className="card">
-      {watchLater &&
+      {watchLater.length === 0 ? (
+        <h1 className="card--empty">Your WatchLater is Empty !</h1>
+      ) : (
         watchLater.map((item) => {
           return (
             <div key={item._id} className="card--wrapper">
@@ -54,7 +56,8 @@ export const WatchLaterCard = () => {
               </div>
             </div>
           );
-        })}
+        })
+      )}
     </section>
   );
 };

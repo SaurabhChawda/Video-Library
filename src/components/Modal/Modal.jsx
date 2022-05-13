@@ -6,7 +6,7 @@ export const Modal = ({ value }) => {
   return (
     <div className="overlay">
       <div className="modal">
-        <h3 className="modal__text">Are you sure you want to Log Out?</h3>
+        <h3 className="modal__text">Are you sure you want Logout ?</h3>
         <div className="modal__btn--container">
           <button
             className="modal__btn--demo modal__btn--yes"

@@ -1,6 +1,6 @@
 import "../Home-Page/Home.css";
 import "../Home-Page/Home-Responsive.css";
-import { Nav, Sidebar } from "../../components/Index";
+import { Nav,Sidebar } from "../../components/Index";
 import { HistoryCard } from "./Components/HistoryCard.jsx";
 import { Header } from "./Components/Header";
 export function History() {

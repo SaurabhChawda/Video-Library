@@ -1,0 +1,31 @@
+.playList {
+  margin: 5rem 0 10rem;
+  position: relative;
+}
+.playList--container {
+  margin: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+.playList-header--Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+.playlist__heading {
+  margin: 0 1rem;
+  color: var(--primary-theme-color);
+}
+.playlist-Card {
+  margin: 1rem;
+  justify-content: start;
+}
+.card-empty--container{
+  display: flex;
+  justify-content: center;
+}
+.card--empty {
+  font-size: var(--font-size-X-large);
+  color: var(--primary-theme-color);
+}
