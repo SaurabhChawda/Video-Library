@@ -2,7 +2,7 @@ import "../Home-Page/Home.css";
 import "../Home-Page/Home-Responsive.css";
 import "./Video.css";
 import { Nav, NavForTab, Sidebar, Aside, AsideCard } from "../../components/Index";
-import { VideoCard } from "./Components/Card/VideoCard.jsx";
+import { VideoCard } from "./Components/VideoCard.jsx";
 export function Video() {
   return (
     <div className="video-page">

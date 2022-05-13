@@ -9,6 +9,7 @@ export const LikedVideoCard = () => {
   const {
     state: { likedVideo },
     dispatch,
+    RemoveFromLikedVideo,AddToHistory
   } = useUser();
   return (
     <section className="card">
@@ -22,6 +23,7 @@ export const LikedVideoCard = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
+                    AddToHistory(item)
                     navigate(`/video/${item._id}`);
                   }}
                 />
@@ -42,9 +44,9 @@ export const LikedVideoCard = () => {
                 <div className="card__icon--container">
                   <MdDelete
                     size={25}
-                    color={themeToggle === "light" ? "White" : "black"}
+                    color={themeToggle === "light" ? "black" : "White"}
                     onClick={() => {
-                      dispatch({ type: "Remove_From_LikedVideo", payload: item });
+                      RemoveFromLikedVideo(item);
                     }}
                   />
                 </div>

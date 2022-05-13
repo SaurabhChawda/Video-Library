@@ -1,8 +1,3 @@
-@media screen and (max-width: 1150px) {
-  .card-product {
-    margin: 3em 2em;
-  }
-}
 @media screen and (max-width: 800px) {
   .page--Container {
     grid-template-columns: 100%;
@@ -18,11 +13,5 @@
   }
   .sidebar {
     visibility: hidden;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .card-product {
-    margin: 2em 1.5em;
   }
 }

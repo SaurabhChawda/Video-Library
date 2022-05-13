@@ -9,6 +9,8 @@ export const WatchLaterCard = () => {
   const {
     state: { watchLater },
     dispatch,
+    RemoveFromWatchLater,
+    AddToHistory,
   } = useUser();
   return (
     <section className="card">
@@ -22,6 +24,7 @@ export const WatchLaterCard = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
+                    AddToHistory(item);
                     navigate(`/video/${item._id}`);
                   }}
                 />
@@ -42,9 +45,9 @@ export const WatchLaterCard = () => {
                 <div className="card__icon--container">
                   <MdDelete
                     size={25}
-                    color={themeToggle === "light" ? "White" : "black"}
+                    color={themeToggle === "light" ? "black" : "White"}
                     onClick={() => {
-                      dispatch({ type: "Remove_From_WatchLater", payload: item });
+                      RemoveFromWatchLater(item);
                     }}
                   />
                 </div>

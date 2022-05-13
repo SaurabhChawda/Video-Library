@@ -1,15 +1,21 @@
 import "./Card.css";
 import "./Card-Responsive.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PlayListModal } from "../../components/Index";
 import { useTheme, useUser, useSearch } from "../../Contexts/Index";
 import { MdPlaylistAdd, MdOutlinePlaylistAddCheck, MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
 export const Card = () => {
+  const [openModal, setOpneModal] = useState(false);
   const navigate = useNavigate();
   const { themeToggle } = useTheme();
   const { updatedData } = useSearch();
   const {
     state: { watchLater, playList },
     dispatch,
+    AddToWatchLater,
+    RemoveFromWatchLater,
+    AddToHistory,
   } = useUser();
   return (
     <section className="card">
@@ -23,8 +29,8 @@ export const Card = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
+                    AddToHistory(item);
                     navigate(`/video/${item._id}`);
-                    dispatch({ type: "Add_to_History", payload: item });
                   }}
                 />
                 <small className="card--time">{item.time}</small>
@@ -46,7 +52,7 @@ export const Card = () => {
                     playList.some((value) => value._id === item._id) ? (
                       <MdOutlinePlaylistAddCheck
                         size={25}
-                        color={themeToggle === "light" ? "White" : "black"}
+                        color={themeToggle === "light" ? "black" : "white"}
                         onClick={() => {
                           dispatch({ type: "Remove_From_PlayList", payload: item });
                         }}
@@ -54,8 +60,9 @@ export const Card = () => {
                     ) : (
                       <MdPlaylistAdd
                         size={25}
-                        color={themeToggle === "light" ? "White" : "black"}
+                        color={themeToggle === "light" ? "black" : "white"}
                         onClick={() => {
+                          setOpneModal(!openModal);
                           dispatch({ type: "Add_to_PlayList", payload: item });
                         }}
                       />
@@ -63,8 +70,9 @@ export const Card = () => {
                   ) : (
                     <MdPlaylistAdd
                       size={25}
-                      color={themeToggle === "light" ? "White" : "black"}
+                      color={themeToggle === "light" ? "black" : "white"}
                       onClick={() => {
+                        setOpneModal(!openModal);
                         dispatch({ type: "Add_to_PlayList", payload: item });
                       }}
                     />
@@ -74,26 +82,24 @@ export const Card = () => {
                       watchLater.some((value) => value._id === item._id) ? (
                         <MdWatchLater
                           size={25}
-                          color={themeToggle === "light" ? "White" : "black"}
+                          color={themeToggle === "light" ? "black" : "white"}
                           onClick={() => {
-                            dispatch({ type: "Remove_From_WatchLater", payload: item });
+                            RemoveFromWatchLater(item);
                           }}
                         />
                       ) : (
                         <MdOutlineWatchLater
                           size={25}
-                          color={themeToggle === "light" ? "White" : "black"}
-                          onClick={() => {
-                            dispatch({ type: "Add_to_WatchLater", payload: item });
-                          }}
+                          color={themeToggle === "light" ? "black" : "white"}
+                          onClick={() => AddToWatchLater(item)}
                         />
                       )
                     ) : (
                       <MdOutlineWatchLater
                         size={25}
-                        color={themeToggle === "light" ? "White" : "black"}
+                        color={themeToggle === "light" ? "black" : "white"}
                         onClick={() => {
-                          dispatch({ type: "Add_to_WatchLater", payload: item });
+                          AddToWatchLater(item);
                         }}
                       />
                     )}
@@ -103,6 +109,7 @@ export const Card = () => {
             </div>
           );
         })}
+      {openModal && <PlayListModal value={{ openModal, setOpneModal }} />}
     </section>
   );
 };
