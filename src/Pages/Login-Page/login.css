@@ -3,10 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .login {
-  margin: 5rem 0.5rem 0 ;
+  margin: 5rem 0.5rem 0;
+  flex-basis: 23rem;
 }
 .login-form {
   padding: 2rem 2rem 8px;
