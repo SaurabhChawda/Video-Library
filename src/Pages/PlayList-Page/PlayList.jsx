@@ -1,10 +1,9 @@
 import "../Home-Page/Home.css";
 import "../Home-Page/Home-Responsive.css";
-import { Nav, NavForTab, Sidebar } from "../../components/Index";
-import { WatchLaterCard } from "./Components/WatchLaterCard.jsx";
+import { Nav, NavForTab, Sidebar, Filter } from "../../components/Index";
+import { PlayListCard } from "./Components/PlayListCard.jsx";
 import { Header } from "./Components/Header.jsx";
-
-export function WatchLater() {
+export function PlayList() {
   return (
     <div className="page--Container">
       <Nav hideComponent={false} />
@@ -12,7 +11,7 @@ export function WatchLater() {
       <Sidebar />
       <main className="main--container">
         <Header />
-        <WatchLaterCard />
+        <PlayListCard />
       </main>
     </div>
   );

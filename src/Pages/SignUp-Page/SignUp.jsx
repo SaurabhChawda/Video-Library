@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Nav, NavForTab, Sidebar } from "../../components/Index";
 import { useAuth } from "../../Contexts/Index";
 import { NavLink } from "react-router-dom";
+import { Header } from "./Components/Header";
 export function SignUp() {
   const { signUpCredentials } = useAuth();
   const [showpassword, setShowPassword] = useState("password");
@@ -32,11 +33,9 @@ export function SignUp() {
       <NavForTab />
       <Sidebar />
       <main className="main--container">
+        <Header />
         <section className="signup--container">
           <div className="signup">
-            <div className="signup--header">
-              <h1 className="signup__title">Sign-Up</h1>
-            </div>
             <form className="signup-form">
               <div className="signup-form--username-wrapper">
                 <fieldset className="signup-form__fieldset">

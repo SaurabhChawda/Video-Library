@@ -1,0 +1,19 @@
+.header--container {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  margin: 0.2rem 0rem 0 0.2rem;
+  min-height: 3.5rem;
+  width: 100%;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0px 0px 5px 1px rgb(167, 167, 167);
+}
+.header__unordered-List {
+  display: flex;
+  align-items: center;
+}
+.header__heading {
+  color: var(--primary-theme-color);
+  font-size: var(--font-size-large);
+  margin-left: 0.5rem;
+}

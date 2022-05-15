@@ -9,11 +9,14 @@ export const LikedVideoCard = () => {
   const {
     state: { likedVideo },
     dispatch,
-    RemoveFromLikedVideo,AddToHistory
+    RemoveFromLikedVideo,
+    AddToHistory,
   } = useUser();
   return (
     <section className="card">
-      {likedVideo &&
+      {likedVideo.length === 0 ? (
+        <h1 className="card--empty">Your Liked Video is Empty !</h1>
+      ) : (
         likedVideo.map((item) => {
           return (
             <div key={item._id} className="card--wrapper">
@@ -23,7 +26,7 @@ export const LikedVideoCard = () => {
                   src={item.thumbnail}
                   onClick={() => {
                     dispatch({ type: "Add_to_CurrentVideo", payload: item });
-                    AddToHistory(item)
+                    AddToHistory(item);
                     navigate(`/video/${item._id}`);
                   }}
                 />
@@ -53,7 +56,8 @@ export const LikedVideoCard = () => {
               </div>
             </div>
           );
-        })}
+        })
+      )}
     </section>
   );
 };

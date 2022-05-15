@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, NavForTab, Sidebar } from "../../components/Index";
 import { useAuth } from "../../Contexts/Index";
-
+import { Header } from "./Components/Header";
 export function Login() {
   const { loginCredentials, logoutCredentials } = useAuth();
   const [userLogin, setUserLogin] = useState({ username: "", password: "" });
@@ -23,11 +23,9 @@ export function Login() {
       <NavForTab />
       <Sidebar />
       <main className="main--container">
+        <Header />
         <section className="login--container">
           <div className="login">
-            <div className="login--header">
-              <h1 className="login__title">Login</h1>
-            </div>
             <form className="login-form">
               <div className="login-form--primary-container">
                 <fieldset className="login-form__fieldset login-form__fieldset--gmail">

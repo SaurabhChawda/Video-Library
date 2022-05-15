@@ -9,7 +9,7 @@
   z-index: 2;
 }
 
-.modal {
+.playList-modal {
   position: absolute;
   background-color: var(--white-color);
   border: 3px solid var(--primary-color);
@@ -19,35 +19,48 @@
   transform: translateX(-50%) translateY(-50%);
   background-color: var(--secondary-bg-color);
 }
-.modal--header {
+.playList-modal--header {
   padding: 0.2rem 0.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--primary-color);
 }
-.modal--new-PlayList {
+.playList-modal--new-PlayList {
   display: flex;
 }
-.modal__heading {
-  color: var(--secondary-theme-color);
+.playList-modal__heading {
+  color: var(--primary-theme-color);
 }
-.modal__input {
+.playList-modal__input {
   width: 100%;
   padding: 0.5rem;
   border: 2px solid var(--primary-color);
   border-radius: 2px solid;
 }
-.modal__input::placeholder {
+.playList-modal__input::placeholder {
   font-size: var(--font-size-small);
 }
-.modal__btn {
+.playList-modal__btn {
   cursor: pointer;
   border: 2px solid var(--primary-color);
   border-radius: 2px solid;
   padding: 0.5rem;
   font-size: var(--font-size-small);
 }
-.modal__btn:hover {
+.playList-modal__btn:hover {
   background-color: var(--primary-color);
+}
+
+.playList-item--container {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 1rem;
+}
+.playList__checkbox {
+  zoom: 1.5;
+}
+.playList__title {
+  color: var(--primary-color);
 }

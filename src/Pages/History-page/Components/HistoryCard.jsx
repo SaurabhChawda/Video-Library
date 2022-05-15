@@ -13,7 +13,9 @@ export const HistoryCard = () => {
   } = useUser();
   return (
     <section className="card">
-      {history &&
+      {history.length === 0 ? (
+        <h1 className="card--empty">Your History is Empty !</h1>
+      ) : (
         history.map((item) => {
           return (
             <div key={item._id} className="card--wrapper">
@@ -52,7 +54,8 @@ export const HistoryCard = () => {
               </div>
             </div>
           );
-        })}
+        })
+      )}
     </section>
   );
 };

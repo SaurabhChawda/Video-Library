@@ -15,6 +15,11 @@ export const Reducer = (state, action) => {
         ...state,
         history: [...state.history, ...action.payload],
       };
+    case "Load_PlayList_Data":
+      return {
+        ...state,
+        playList: [...state.playList, ...action.payload],
+      };
     case "Add_to_CurrentVideo":
       return {
         ...state,
@@ -30,15 +35,25 @@ export const Reducer = (state, action) => {
         ...state,
         watchLater: state.watchLater.filter((item) => item._id !== action.payload._id),
       };
-    case "Add_to_PlayList":
+    case "Create_PlayList":
       return {
         ...state,
-        playList: [...state.playList, action.payload],
+        playList: action.payload,
       };
-    case "Remove_From_PlayList":
+    case "Delete_PlayList":
       return {
         ...state,
         playList: state.playList.filter((item) => item._id !== action.payload._id),
+      };
+    case "Add_Video_To_PlayList":
+      return {
+        ...state,
+        playList: state.playList.map((item) => (item._id === action.payload._id ? action.payload : item)),
+      };
+    case "Delete_Video_From_PlayList":
+      return {
+        ...state,
+        playList: state.playList.map((item) => (item._id === action.payload._id ? action.payload : item)),
       };
     case "Add_to_LikedVideo":
       return {
@@ -69,6 +84,11 @@ export const Reducer = (state, action) => {
       return {
         ...state,
         history: state.history.filter((item) => item._id !== action.payload._id),
+      };
+    case "Remove_All_Video_From_History":
+      return {
+        ...state,
+        history: [],
       };
     case "Reset":
       return {

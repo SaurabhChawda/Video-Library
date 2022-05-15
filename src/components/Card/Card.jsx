@@ -7,6 +7,7 @@ import { useTheme, useUser, useSearch } from "../../Contexts/Index";
 import { MdPlaylistAdd, MdOutlinePlaylistAddCheck, MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
 export const Card = () => {
   const [openModal, setOpneModal] = useState(false);
+  const [video, setVideo] = useState();
   const navigate = useNavigate();
   const { themeToggle } = useTheme();
   const { updatedData } = useSearch();
@@ -48,35 +49,14 @@ export const Card = () => {
                   <small className="card--content-date">{item.date}</small>
                 </div>
                 <div className="card__icon--container">
-                  {playList.length !== 0 ? (
-                    playList.some((value) => value._id === item._id) ? (
-                      <MdOutlinePlaylistAddCheck
-                        size={25}
-                        color={themeToggle === "light" ? "black" : "white"}
-                        onClick={() => {
-                          dispatch({ type: "Remove_From_PlayList", payload: item });
-                        }}
-                      />
-                    ) : (
-                      <MdPlaylistAdd
-                        size={25}
-                        color={themeToggle === "light" ? "black" : "white"}
-                        onClick={() => {
-                          setOpneModal(!openModal);
-                          dispatch({ type: "Add_to_PlayList", payload: item });
-                        }}
-                      />
-                    )
-                  ) : (
-                    <MdPlaylistAdd
-                      size={25}
-                      color={themeToggle === "light" ? "black" : "white"}
-                      onClick={() => {
-                        setOpneModal(!openModal);
-                        dispatch({ type: "Add_to_PlayList", payload: item });
-                      }}
-                    />
-                  )}
+                  <MdPlaylistAdd
+                    size={25}
+                    color={themeToggle === "light" ? "black" : "white"}
+                    onClick={() => {
+                      setVideo(item);
+                      setOpneModal(!openModal);
+                    }}
+                  />
                   <div>
                     {watchLater.length !== 0 ? (
                       watchLater.some((value) => value._id === item._id) ? (
@@ -109,7 +89,7 @@ export const Card = () => {
             </div>
           );
         })}
-      {openModal && <PlayListModal value={{ openModal, setOpneModal }} />}
+      {openModal && <PlayListModal value={{ openModal, setOpneModal, video }} />}
     </section>
   );
 };

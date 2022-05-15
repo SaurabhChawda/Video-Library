@@ -1,12 +1,16 @@
 import "./VideoCard.css";
 import "./VideoCard-Responsive.css";
+import { useState } from "react";
 import { useTheme, useUser } from "../../../Contexts/Index";
-import { MdPlaylistAdd, MdOutlinePlaylistAddCheck, MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
+import { MdPlaylistAdd, MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
+import { PlayListModal } from "../../../components/Index";
 export const VideoCard = () => {
+  const [video, setVideo] = useState();
+  const [openModal, setOpneModal] = useState(false);
   const { themeToggle } = useTheme();
   const {
-    state: { watchLater, playList, currentVideo, likedVideo },
+    state: { watchLater, currentVideo, likedVideo },
     dispatch,
     RemoveFromLikedVideo,
     AddToLikedVideo,
@@ -71,33 +75,14 @@ export const VideoCard = () => {
                         )}
                       </div>
                       <div>
-                        {playList.length !== 0 ? (
-                          playList.some((value) => value._id === item._id) ? (
-                            <MdOutlinePlaylistAddCheck
-                              size={25}
-                              color={themeToggle === "light" ? "black" : "white"}
-                              onClick={() => {
-                                dispatch({ type: "Remove_From_PlayList", payload: item });
-                              }}
-                            />
-                          ) : (
-                            <MdPlaylistAdd
-                              size={25}
-                              color={themeToggle === "light" ? "black" : "white"}
-                              onClick={() => {
-                                dispatch({ type: "Add_to_PlayList", payload: item });
-                              }}
-                            />
-                          )
-                        ) : (
-                          <MdPlaylistAdd
-                            size={25}
-                            color={themeToggle === "light" ? "black" : "white"}
-                            onClick={() => {
-                              dispatch({ type: "Add_to_PlayList", payload: item });
-                            }}
-                          />
-                        )}
+                        <MdPlaylistAdd
+                          size={25}
+                          color={themeToggle === "light" ? "black" : "white"}
+                          onClick={() => {
+                            setVideo(item);
+                            setOpneModal(!openModal);
+                          }}
+                        />
                       </div>
                       <div>
                         {watchLater.length !== 0 ? (
@@ -135,6 +120,7 @@ export const VideoCard = () => {
             </div>
           );
         })}
+      {openModal && <PlayListModal value={{ openModal, setOpneModal, video }} />}
     </section>
   );
 };

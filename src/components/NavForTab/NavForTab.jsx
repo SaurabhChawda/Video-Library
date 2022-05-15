@@ -2,9 +2,7 @@ import "./NavForTab.css";
 import { MdPlaylistAdd, MdWatchLater, MdOutlineHome, MdOutlineHistoryToggleOff } from "react-icons/md";
 import { AiFillLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../Contexts/ThemeContext";
 export const NavForTab = () => {
-  const { themeToggle } = useTheme();
   return (
     <div className="nav-bar-tab">
       <div className="nav-bar-tab-container">
