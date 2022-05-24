@@ -35,7 +35,7 @@ export function Login() {
                   <input
                     className="login-form__input-demo login-form__input--username"
                     type="email"
-                    placeholder="discover@gmail.com"
+                    placeholder="admin@gmail.com"
                     name="uname"
                     required
                     onChange={(event) => setUserLogin({ ...userLogin, username: event.target.value })}
@@ -49,7 +49,7 @@ export function Login() {
                     <input
                       className="login-form__input-demo login-form__input--password"
                       type={showpassword}
-                      placeholder="Enter Password"
+                      placeholder="admin"
                       name="password"
                       required
                       onChange={(event) => setUserLogin({ ...userLogin, password: event.target.value })}
