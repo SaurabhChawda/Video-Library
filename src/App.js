@@ -12,8 +12,8 @@ function App() {
       <ToastContainer autoClose={2000} />
       <div className="app" theme={themeToggle}>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/video/:id" element={<Video />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/video/:id" element={<Video />} />
           <Route
             path="/playlist"
             element={
@@ -21,9 +21,9 @@ function App() {
                 <PlayList />
               </PrivateRoute>
             }
-          ></Route>
-          <Route path="/signUp/" element={<SignUp />}></Route>
-          <Route path="/login/" element={<Login />}></Route>
+          />
+          <Route path="/signUp/" element={<SignUp />} />
+          <Route path="/login/" element={<Login />} />
           <Route
             path="/watchLater"
             element={
@@ -31,7 +31,7 @@ function App() {
                 <WatchLater />
               </PrivateRoute>
             }
-          ></Route>
+          />
           <Route
             path="/likedvideos"
             element={
@@ -39,7 +39,7 @@ function App() {
                 <LikedVideo />
               </PrivateRoute>
             }
-          ></Route>
+          />
           <Route
             path="/history"
             element={
@@ -47,7 +47,7 @@ function App() {
                 <History />
               </PrivateRoute>
             }
-          ></Route>
+          />
         </Routes>
       </div>
     </div>
