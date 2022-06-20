@@ -65,3 +65,6 @@
   font-size: var(--font-size-X-large);
   color: var(--primary-theme-color);
 }
+.card__icon--container{
+  cursor: pointer;
+}

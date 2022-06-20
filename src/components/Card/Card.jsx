@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayListModal } from "../../components/Index";
 import { useTheme, useUser, useSearch } from "../../Contexts/Index";
-import { MdPlaylistAdd, MdOutlinePlaylistAddCheck, MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
+import { MdPlaylistAdd,MdOutlineWatchLater, MdWatchLater } from "react-icons/md";
 export const Card = () => {
   const [openModal, setOpneModal] = useState(false);
   const [video, setVideo] = useState();

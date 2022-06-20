@@ -55,9 +55,10 @@
   align-items: center;
   gap: 15px;
 }
-.videoCard__icon{
+.videoCard__icon {
   display: flex;
   gap: 10px;
+  cursor: pointer;
 }
 .video-container {
   padding-top: 56.25%;

@@ -2,18 +2,29 @@
   z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0.2rem 0rem 0 0.2rem;
   min-height: 3.5rem;
   width: 100%;
   background-color: var(--secondary-bg-color);
   box-shadow: 0px 0px 5px 1px rgb(167, 167, 167);
 }
-.header__unordered-List {
-  display: flex;
-  align-items: center;
-}
 .header__heading {
   color: var(--primary-theme-color);
   font-size: var(--font-size-large);
   margin-left: 0.5rem;
+}
+.header__btn--CreateNewPlayList{
+  margin-right: 0.5rem;
+  cursor: pointer;
+  padding: 2px;
+  border: 2px solid var(--primary-color);
+  border-radius: 2px;
+  background-color: transparent;
+  color: var(--primary-theme-color);
+}
+.header__btn--CreateNewPlayList:hover {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-theme-color);
+  color: var(--primary-theme-color);
 }
