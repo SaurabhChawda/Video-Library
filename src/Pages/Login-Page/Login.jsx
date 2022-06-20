@@ -75,6 +75,12 @@ export function Login() {
                 <button className="login-form__btn--submit" onClick={(event) => loginHandler(event, userLogin)}>
                   Login
                 </button>
+                <button
+                  className="login-form__btn--submit"
+                  onClick={(event) => loginHandler(event, { username: "admin@gmail.com", password: "admin" })}
+                >
+                  Login As Guest
+                </button>
               </div>
               <div className="login-form--new-account">
                 <small className="login-form__btn--new-account login-form__btn--new-account-text">
