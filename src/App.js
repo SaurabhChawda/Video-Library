@@ -5,7 +5,11 @@ import { useTheme } from "./Contexts/Index";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactGA from 'react-ga4';
+
 function App() {
+  ReactGA.initialize('G-S6P5RP9HFS')
+  ReactGA.send({ hitType: "page_view", page: window.location.pathname});
   const { themeToggle } = useTheme();
   return (
     <div>

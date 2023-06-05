@@ -219,7 +219,6 @@ const UserProvider = ({ children }) => {
     }
   }, [authState]);
 
-  console.log(state.playList);
   return (
     <UserContext.Provider
       value={{
